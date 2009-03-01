@@ -2,11 +2,11 @@ package Geo::WebService::OpenCellID::Response::measure::add;
 use warnings;
 use strict;
 use base qw{Geo::WebService::OpenCellID::Response::measure};
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
-Geo::WebService::OpenCellID::cell - Perl API for the opencellid.org database
+Geo::WebService::OpenCellID::measure::add - Perl API for the opencellid.org database
 
 =head1 SYNOPSIS
 
@@ -24,7 +24,7 @@ Perl Interface to the database at http://www.opencellid.org/
 
 sub id {
   my $self=shift;
-  return $self->{"id"};
+  return $self->{"data"}->{"id"};
 }
 
 =head2 cellid
@@ -33,7 +33,7 @@ sub id {
 
 sub cellid {
   my $self=shift;
-  return $self->{"cellid"};
+  return $self->{"data"}->{"cellid"};
 }
 
 =head2 res
@@ -42,7 +42,7 @@ sub cellid {
 
 sub res {
   my $self=shift;
-  return $self->{"res"};
+  return $self->{"data"}->{"res"}->[0];
 }
 
 =head1 BUGS

@@ -1,7 +1,8 @@
 package Geo::WebService::OpenCellID::Response;
+use base qw{Geo::WebService::OpenCellID::Base};
 use warnings;
 use strict;
-our $version = '0.01';
+our $VERSION = '0.04';
 
 =head1 NAME
 
@@ -21,20 +22,6 @@ Geo::WebService::OpenCellID::Response - Perl API for the opencellid.org database
 
 =cut
 
-sub new {
-  my $this = shift();
-  my $class = ref($this) || $this;
-  my $self = {};
-  bless $self, $class;
-  $self->initialize(@_);
-  return $self;
-}
-
-sub initialize {
-  my $self = shift();
-  %$self=@_;
-}
-
 =head1 METHODS
 
 =head2 stat
@@ -45,7 +32,7 @@ Returns the status from rsp->stat in the xml
 
 sub stat {
   my $self=shift;
-  return $self->{"stat"};
+  return $self->{"data"}->{"stat"};
 }
 
 =head2 content
@@ -57,6 +44,17 @@ Returns the entire XML document.
 sub content {
   my $self=shift;
   return $self->{"content"};
+}
+
+=head2 url
+
+Returns the url of the web service as called
+
+=cut
+
+sub url {
+  my $self=shift;
+  return $self->{"url"};
 }
 
 =head1 BUGS

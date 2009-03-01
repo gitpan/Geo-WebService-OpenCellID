@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use base qw{Geo::WebService::OpenCellID::Base};
 use Geo::WebService::OpenCellID::Response::measure::add;
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -52,19 +52,9 @@ Returns a response object.
 
 sub add {
   my $self=shift;
-  my $uri=URI->new($self->url);
-  $uri->path("measure/add");
-  $uri->query_form(key=>$self->key, @_);
-  my $content=LWP::Simple::get($uri->as_string);
-  if ($content) {
-    my $hash=XML::Simple->new->XMLin($content);
-    return Geo::WebService::OpenCellID::Response::measure::add->new(
-             content=>$content,
-             url=>$uri->as_string,
-             %$hash);
-  } else {
-    return undef;
-  }
+  return $self->parent->call("measure/add",
+                             "Geo::WebService::OpenCellID::Response::measure::add",
+                             @_);
 }
 
 =head1 BUGS

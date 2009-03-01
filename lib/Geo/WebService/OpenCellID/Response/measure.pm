@@ -2,11 +2,11 @@ package Geo::WebService::OpenCellID::Response::measure;
 use warnings;
 use strict;
 use base qw{Geo::WebService::OpenCellID::Response};
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
-Geo::WebService::OpenCellID::cell - Perl API for the opencellid.org database
+Geo::WebService::OpenCellID::Response::measure - Perl API for the opencellid.org database
 
 =head1 SYNOPSIS
 

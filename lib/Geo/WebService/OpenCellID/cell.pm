@@ -7,7 +7,7 @@ use Geo::WebService::OpenCellID::Response::cell::getMeasures;
 use URI qw{};
 use LWP::Simple qw{};
 use XML::Simple qw{};
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -76,19 +76,9 @@ Note: nbSamples=0 is very common!
 
 sub get {
   my $self=shift;
-  my $uri=URI->new($self->url);
-  $uri->path("cell/get");
-  $uri->query_form(key=>$self->key, @_);
-  my $content=LWP::Simple::get($uri->as_string);
-  if ($content) {
-    my $hash=XML::Simple->new->XMLin($content);
-    return Geo::WebService::OpenCellID::Response::cell::get->new(
-             content=>$content,
-             url=>$uri->as_string,
-             %$hash);
-  } else {
-    return undef;
-  }
+  return $self->parent->call("cell/get",
+                             "Geo::WebService::OpenCellID::Response::cell::get",
+                             @_);
 }
 
 =head2 getMeasures
@@ -121,19 +111,9 @@ Returns a response object
 
 sub getMeasures {
   my $self=shift;
-  my $uri=URI->new($self->url);
-  $uri->path("cell/getMeasures");
-  $uri->query_form(key=>$self->key, @_);
-  my $content=LWP::Simple::get($uri->as_string);
-  if ($content) {
-    my $hash=XML::Simple->new->XMLin($content);
-    return Geo::WebService::OpenCellID::Response::cell::getMeasures->new(
-             content=>$content,
-             url=>$uri->as_string,
-             %$hash);
-  } else {
-    return undef;
-  }
+  return $self->parent->call("cell/getMeasures",
+                             "Geo::WebService::OpenCellID::Response::cell::getMeasures",
+                             @_);
 }
 
 =head1 BUGS

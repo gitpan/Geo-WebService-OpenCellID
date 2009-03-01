@@ -1,7 +1,7 @@
 package Geo::WebService::OpenCellID::Base;
 use warnings;
 use strict;
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -37,26 +37,13 @@ sub initialize {
 
 =head1 METHODS
 
-=head2 key
-
-Returns the OpenCellID.org API key
-
-  print $obj->key;
+=head2 parent
 
 =cut
 
-sub key {
+sub parent {
   my $self=shift;
-  return $self->{"key"};
-}
-
-=head2 url
-
-=cut
-
-sub url {
-  my $self=shift;
-  return $self->{"url"} || "http://www.opencellid.org/";
+  return $self->{"parent"};
 }
 
 =head1 BUGS

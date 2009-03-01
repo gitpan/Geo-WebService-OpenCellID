@@ -2,11 +2,11 @@ package Geo::WebService::OpenCellID::Response::cell::getMeasures;
 use warnings;
 use strict;
 use base qw{Geo::WebService::OpenCellID::Response::cell::get};
-our $version = '0.01';
+our $VERSION = '0.03';
 
 =head1 NAME
 
-Geo::WebService::OpenCellID::cell - Perl API for the opencellid.org database
+Geo::WebService::OpenCellID::Response::cell::getMeasures - Perl API for the opencellid.org database
 
 =head1 SYNOPSIS
 
@@ -28,7 +28,7 @@ Returns a list of measures (list of hash references)
 
 sub measures {
   my $self=shift;
-  my $list=$self->{"cell"}->{"measure"};
+  my $list=$self->{"data"}->{"cell"}->[0]->{"measure"};
   return wantarray ? @$list : $list;
 }
 
