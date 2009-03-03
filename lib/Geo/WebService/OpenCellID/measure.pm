@@ -29,7 +29,7 @@ Perl Interface to the database at http://www.opencellid.org/
 
 =head2 add
 
-Returns a response object.
+Returns a response object L<Geo::WebService::OpenCellID::Response::measure::add>.
 
   my $response=$gwo->cell->add(key=>$myapikey,
                                lat=>$lat,

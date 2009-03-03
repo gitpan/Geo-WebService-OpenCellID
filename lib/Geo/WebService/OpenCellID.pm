@@ -4,7 +4,11 @@ use strict;
 use base qw{Geo::WebService::OpenCellID::Base};
 use Geo::WebService::OpenCellID::cell;
 use Geo::WebService::OpenCellID::measure;
-our $VERSION = '0.04';
+use LWP::Simple qw{};
+use XML::Simple qw{};
+use URI qw{};
+
+our $VERSION = '0.05';
 
 =head1 NAME
 
@@ -166,6 +170,8 @@ The full text of the license can be found in the
 LICENSE file included with this module.
 
 =head1 SEE ALSO
+
+L<URI>, L<LWP::Simple>, L<XML::Simple>
 
 =cut
 

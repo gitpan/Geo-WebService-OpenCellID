@@ -4,10 +4,7 @@ use strict;
 use base qw{Geo::WebService::OpenCellID::Base};
 use Geo::WebService::OpenCellID::Response::cell::get;
 use Geo::WebService::OpenCellID::Response::cell::getMeasures;
-use URI qw{};
-use LWP::Simple qw{};
-use XML::Simple qw{};
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 =head1 NAME
 
@@ -33,7 +30,7 @@ Perl Interface to the database at http://www.opencellid.org/
 
 =head2 get
 
-Returns a response object.
+Returns a response object L<Geo::WebService::OpenCellID::Response::cell::get>.
 
   my $response=$gwo->cell->get(key=>$myapikey,
                                mnc=>1,
@@ -83,7 +80,7 @@ sub get {
 
 =head2 getMeasures
 
-Returns a response object
+Returns a response object L<Geo::WebService::OpenCellID::Response::cell::getMeasures>
 
   my $response=$gwo->cell->getMeasures(key=>$myapikey,
                                        mnc=>1,

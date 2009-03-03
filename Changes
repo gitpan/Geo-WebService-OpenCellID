@@ -13,3 +13,6 @@ Revision history for Perl module Geo::Webservice::OpenCellID
   - Response object moved hash into data
 0.04 2009-03-01T05:03:00Z
   - Moved defaults for key and url to initialize method
+0.05 2009-03-03T01:43:00Z
+  - Moved some use statements to the correct package.
+  - Documentation
